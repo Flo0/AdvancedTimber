@@ -1,0 +1,97 @@
+MessagePrefix: "§6[§eAdvancedTimber§6] "
+AllowCreative: false
+
+#This tells the plugin how long it is allowed to destroy
+#blocks per tick. Higher values might cause lags.
+#Lower values will get a better performance but could lead
+#to pretty inconsistent destruction times of trees.
+#hard capped between 1 and 50 including both
+MillisecondsPerPlaceQueue: 10
+
+#If this is set too high (~5 is pretty high), timbering might
+#look laggy. Can enhance performance when raised.
+CheckPeriod: 2
+
+#This can be used to limit the size of
+#trees that can be cut.
+#Will have a performance impact if set to aprox 10.000 or higher
+MaxTreeSize: 1000
+TreeTooBigMessage: "§cThis tree is too big for timbering."
+
+#DropChance in percent if block should drop when timbering
+DropChance: 100
+
+#The durability that should be removed per timbered block
+DurabilityLoss: 1
+
+#Set to true if you want to include Unbreaking enchantments
+CheckEnchantments: true
+
+#If this is set to true then the player
+#will instantly get all drops and the treeblocks
+#will not drop any items.
+NoDrops: false
+
+#If this is true only trees with leaves on them
+#can be timbered
+#If set to false, players are able to timber every
+#LOG - structure
+CheckIfTree: false
+
+#This can be used if trees with blocks that are
+#further apart should be timbered
+#Use with caution. This can lead to instant deforestation
+#Uses a slightly performance heavier calculation for cubes
+UseJumpCascade: false
+CubeRadius: 2
+
+#If this is true every tick only N blocks will get
+#destroyed. With N := BlocksPerSmoothBreak
+#Will ignore the MillisecondsPerPlaceQueue limitation!
+SmoothBreak: false
+BlocksPerSmoothBreak: 10
+
+#Blocks in the droplist cant be broken to
+#obtain another drop.
+#This is a little bit safer but needs a bit
+#more performance.
+Safedrops: false
+
+#If this is true the plugin will try to fire events for every
+#block that is broken by a player while timbering.
+#This can enable or break compatiblility
+#For example: Jobs reborn will recognise every broken block and give the player
+#exp for every log.
+#On the other side almost every antichet will throw false positives.
+#Might cause lags with huge trees
+FireEvents: false
+
+#Only OPs and players with this permissions can trigger a timber.
+Permission: "timber.trigger"
+
+#If an item has ANY of the given parameters, it will
+#trigger a tree timber. You can ask for more :D
+#Here is a list of all valid Materials: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+TriggerItems:
+    Material:
+        contains:
+        - PICKAXE
+        - SWORD
+        exact:
+        - DIAMOND_AXE
+        - IRON_AXE
+    Name:
+        contains:
+        - "Timber"
+    Lore:
+        contains:
+        - "This can timber Trees."
+    NBT_Key:
+        - "timberkey"
+
+
+#Enabled worlds
+Worlds:
+  - world
+  - world_nether
+  - world2
