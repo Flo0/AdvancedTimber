@@ -76,7 +76,10 @@ public class TreeBreakListener implements Listener{
 	
 	private boolean isTriggerPlayer(Player player) {
 		if(player.getGameMode().equals(GameMode.CREATIVE) && !this.allowCreative) return false;
-		if(!this.permission.isEmpty() && !player.hasPermission(this.permission)) return false;
+		if(!this.permission.isEmpty() && !player.hasPermission(this.permission)) {
+			System.out.println("perm");
+			return false;
+		}
 		if(!this.allowedWorlds.contains(player.getWorld().getName())) return false;
 		return true;
 	}

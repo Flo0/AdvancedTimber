@@ -8,7 +8,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -228,13 +227,18 @@ public class TimberingTree {
 			
 		}else {
 			
-			for(BlockFace face : BlockFace.values()) {
-				Block next = block.getRelative(face);
-				if(this.validate(next)) {
-					
-					if(this.treeBlocks.size() >= this.maxSize) return true;
-					this.addNextValids(next);
-					
+			for(int relx = -1; relx <= 1; relx++) {
+				for(int rely = -1; rely <= 1; rely++) {
+					for(int relz = -1; relz <= 1; relz++) {
+						Block next = block.getRelative(relx, rely, relz);
+						
+						if(this.validate(next)) {
+							
+							if(this.treeBlocks.size() >= this.maxSize) return true;
+							this.addNextValids(next);
+							
+						}
+					}
 				}
 			}
 			

@@ -1,7 +1,7 @@
 name: AdvancedTimber
 description: This can be used ti timber whole trees.
 main: com.gestankbratwurst.asynctimber.AdvancedTimber
-version: 1.2.1
+version: 1.2.2
 depend: [CT-Core]
 author: [Gestankbratwurst]
 api-version: 1.13
